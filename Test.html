@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test API NhanHV</title>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/5.5.2/js/tabulator.min.js" integrity="sha512-oU2NOn7vXb9igwNelYL+57+t+zb3liitNE8/NXg8QFJhBCSvH+dt9+s3H02aM41FUF7WYWx0kPeFV5yIkm1MVA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabulator/5.5.2/css/tabulator.min.css" integrity="sha512-HdUIebGeOK7s+At/fOnnbX8vsz6Cl1KTeiRlBiQABTMSqw7kZRCxGiUnuF9lr+1xz5y8pL7jkCR+NNtVVkEqKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <h1>Test API NhanHV</h1>
+  <table id="myTable" class="display">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+  </table>
+  <script>
+    $(document).ready( function () {
+      var table = new Tabulator("#myTable", {
+        height:"500px",
+        layout:"fitColumns",
+        placeholder:"No Data Set",
+        columns:[
+            { title:"Id", field:"id", sorter:"number", width:100, hozAlign:"center" },
+            {title:"Title", field:"title", sorter:"string" },
+            {title:"Body", field:"body", sorter:"string"}
+        ],
+      });
+
+      //trigger AJAX load on "Load Data via AJAX" button click
+      setTimeout(() => {
+        table.setData("https://localhost:7292/api/Crawar/posts");
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
