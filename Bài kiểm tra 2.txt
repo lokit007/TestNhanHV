@@ -1,0 +1,6 @@
+1. Print Range: Radio option trong cùng group không thể chọn được 2 cái.
+2. Page Scaling: Fit to Paper nhưng thực tế không fit.
+3. Pages: 1-195 nhưng preview 1-193.
+4. Checkbox không có nội dung.
+5. Document pager đơn vị cm nhưng thông tin là in.
+6. Mục đo preview width dang 1.5
